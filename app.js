@@ -28,6 +28,7 @@ document.querySelector(".again").addEventListener("click", () => {
   score = 20;
   document.querySelector(".score").textContent = score;
   document.querySelector(".number").value = "";
+  document.querySelector(".highscore").textContent = highScore;
 });
 
 document.querySelector(".check").addEventListener("click", () => {
@@ -38,6 +39,14 @@ document.querySelector(".check").addEventListener("click", () => {
     document.querySelector(".score").textContent = score;
     highScore--;
     document.querySelector(".highscore").textContent = highScore;
+    if (score < 1) {
+      document.querySelector(".sugest").textContent = "😅 You lost the game !";
+      document.querySelector(".score").textContent = 0;
+      // document.querySelector(".highscore").textContent = 0;
+    }
+    if (highScore < 1) {
+      document.querySelector(".highscore").textContent = 0;
+    }
   } else if (guess === secretNumber) {
     document.querySelector(".sugest").textContent = "🎉 Correct Guess";
     if (score >= highScore) {
